@@ -60,30 +60,32 @@ public abstract class Ship {
         if (positionX < 99 && board[positionY][positionX + 1] == null) {
             posibilities[numberOfPosibilities++] = Directions.right;
         }
-        switch (posibilities[random.nextInt(numberOfPosibilities)]) {
-        case right:
-            board[positionY][positionX + 1] = this;
-            board[positionY][positionX] = null;
-            positionX++;
-            break;
-        case up:
-            board[positionY - 1][positionX] = this;
-            board[positionY][positionX] = null;
-            positionY--;
-            break;
-        case down:
-            board[positionY + 1][positionX] = this;
-            board[positionY][positionX] = null;
-            positionY++;
-            break;
-        case left:
-            board[positionY][positionX - 1] = this;
-            board[positionY][positionX] = null;
-            positionX--;
-            break;
-        default:
-            break;
+        if (numberOfPosibilities>0){
+            switch (posibilities[random.nextInt(numberOfPosibilities)]) {
+            case right:
+                board[positionY][positionX + 1] = this;
+                board[positionY][positionX] = null;
+                positionX++;
+                break;
+            case up:
+                board[positionY - 1][positionX] = this;
+                board[positionY][positionX] = null;
+                positionY--;
+                break;
+            case down:
+                board[positionY + 1][positionX] = this;
+                board[positionY][positionX] = null;
+                positionY++;
+                break;
+            case left:
+                board[positionY][positionX - 1] = this;
+                board[positionY][positionX] = null;
+                positionX--;
+                break;
+            default:
+                break;
 
+            }
         }
 
     }
